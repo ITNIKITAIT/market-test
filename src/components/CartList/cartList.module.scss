@@ -1,0 +1,16 @@
+.cart__list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.total {
+    font-size: 18px;
+}
+
+@media (min-width: 800px) {
+    .total {
+        font-size: 28px;
+    }
+}

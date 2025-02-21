@@ -1,8 +1,17 @@
+import toast from 'react-hot-toast';
+import { useCart } from '../../context/CartContext';
 import Button from '../../shared/ui/Button/Button';
-import { Product } from '../../types/product';
+import { IProduct } from '../../types/product';
 import styles from './productCard.module.scss';
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: IProduct }) => {
+    const { addToCart } = useCart();
+
+    const handleAdd = () => {
+        toast.success('Product was added to cart');
+        addToCart(product);
+    };
+
     return (
         <div key={product.id} className={styles.card}>
             <div className={styles.card__image}>
@@ -16,7 +25,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                     </h5>
                     <p className={styles.card__price}>${product.price}</p>
                 </div>
-                <Button>ADD TO CART</Button>
+                <Button onClick={handleAdd}>ADD TO CART</Button>
             </div>
         </div>
     );

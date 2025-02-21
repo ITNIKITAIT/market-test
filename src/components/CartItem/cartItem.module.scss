@@ -1,0 +1,31 @@
+.cart__item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 30px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ebebeb;
+    padding: 8px 7px;
+    font-size: 11px;
+}
+
+.btn-remove {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.1s all ease;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+        color: red;
+    }
+}
+
+@media (min-width: 800px) {
+    .cart__item {
+        padding: 15px 20px;
+        grid-template-columns: 3fr 1fr 1fr 50px;
+        font-size: 16px;
+    }
+}

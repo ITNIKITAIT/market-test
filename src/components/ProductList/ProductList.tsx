@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { fetchProducts, fetchProductsByCategory } from '../../services/api';
-import { Product } from '../../types/product';
+import { IProduct } from '../../types/product';
 import styles from './productList.module.scss';
 import ProductCard from '../ProductCard/ProductCard';
 import { useSearchParams } from 'react-router-dom';
 import Loader from '../../shared/ui/Loader/Loader';
 
 const ProductList = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<IProduct[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
