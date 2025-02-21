@@ -1,0 +1,16 @@
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &__btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s all ease;
+
+        &:hover {
+            transform: scale(110%);
+        }
+    }
+}
