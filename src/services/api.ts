@@ -8,7 +8,6 @@ export const fetchProducts = async () => {
         return response.data;
     } catch (error) {
         console.error('Error when loading products:', error);
-        throw error;
     }
 };
 
@@ -18,7 +17,6 @@ export const fetchProductsByCategory = async (category: string) => {
         return response.data;
     } catch (error) {
         console.error('Error when loading a category:', error);
-        throw error;
     }
 };
 
@@ -28,6 +26,5 @@ export const fetchCategories = async () => {
         return response.data;
     } catch (error) {
         console.error('Error when loading a categories:', error);
-        throw error;
     }
 };

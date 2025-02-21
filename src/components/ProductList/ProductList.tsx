@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { fetchProducts } from '../../services/api';
 import { Product } from '../../types/product';
+import styles from './productList.module.scss';
+import ProductCard from '../ProductCard/ProductCard';
 
 const ProductList = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -13,7 +15,7 @@ const ProductList = () => {
                 const data = await fetchProducts();
                 setProducts(data);
             } catch (err) {
-                setError('Error');
+                setError('Error when loading products');
             } finally {
                 setLoading(false);
             }
@@ -26,13 +28,9 @@ const ProductList = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
+        <div className={styles.list}>
             {products.map((product) => (
-                <div key={product.id}>
-                    <img src={product.image} alt={product.title} width={100} />
-                    <h3>{product.title}</h3>
-                    <p>{product.price} $</p>
-                </div>
+                <ProductCard product={product} />
             ))}
         </div>
     );
