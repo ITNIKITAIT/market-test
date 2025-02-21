@@ -1,0 +1,34 @@
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    button {
+        padding: 5px 10px;
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #c4c4c4;
+        cursor: pointer;
+        transition: 0.2s all ease;
+        font-family: 'Poppins', sans-serif;
+
+        &:hover {
+            background-color: #e3e3e3;
+        }
+    }
+    .category-active {
+        background-color: black;
+        color: #fff;
+        &:hover {
+            background-color: black;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .categories {
+        gap: 15px;
+    }
+}

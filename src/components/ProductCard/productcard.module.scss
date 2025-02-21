@@ -38,28 +38,11 @@
     }
     &__category {
         font-size: 15px;
-        font-weight: bold;
         color: black;
     }
     &__price {
         font-size: 20px;
         font-weight: bold;
         color: #fff;
-    }
-}
-
-.add-to-cart {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #6d3a1b;
-    color: white;
-    font-weight: bold;
-    border-radius: 0 0 20px 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover {
-        background: #532e1c;
     }
 }

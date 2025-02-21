@@ -1,19 +1,31 @@
 import { useEffect, useState } from 'react';
-import { fetchProducts } from '../../services/api';
+import { fetchProducts, fetchProductsByCategory } from '../../services/api';
 import { Product } from '../../types/product';
 import styles from './productList.module.scss';
 import ProductCard from '../ProductCard/ProductCard';
+import { useSearchParams } from 'react-router-dom';
+import Loader from '../../shared/ui/Loader/Loader';
 
 const ProductList = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
+    const [searchParams] = useSearchParams();
+    const selectedCategory = searchParams.get('category');
+
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const data = await fetchProducts();
-                setProducts(data);
+                if (selectedCategory) {
+                    const data = await fetchProductsByCategory(
+                        selectedCategory
+                    );
+                    setProducts(data);
+                } else {
+                    const data = await fetchProducts();
+                    setProducts(data);
+                }
             } catch (err) {
                 setError('Error when loading products');
             } finally {
@@ -22,9 +34,9 @@ const ProductList = () => {
         };
 
         loadProducts();
-    }, []);
+    }, [selectedCategory]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>{error}</p>;
 
     return (

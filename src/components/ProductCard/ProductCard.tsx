@@ -1,10 +1,10 @@
 import Button from '../../shared/ui/Button/Button';
 import { Product } from '../../types/product';
-import styles from './productcard.module.scss';
+import styles from './productCard.module.scss';
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
-        <div className={styles.card}>
+        <div key={product.id} className={styles.card}>
             <div className={styles.card__image}>
                 <img src={product.image} alt={product.title} />
             </div>
